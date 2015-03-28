@@ -6,17 +6,14 @@
 package janpixfarma.modules.application;
 
 import janpixfarma.model.User;
-import java.util.List;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import janpixfarma.model.UserTable;
 /**
  *
  * @author clever
  */
 public class BootStrap {
-
     private static BootStrap app = null;
-    private List<User> users = new ArrayList<>();
+    protected UserTable users; 
     private boolean login = false;
     private boolean admin = false;
     private User user;
@@ -27,11 +24,11 @@ public class BootStrap {
     private BootStrap() {
     }
 
-    public List<User> getUsers() {
+    public UserTable getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(UserTable users) {
         this.users = users;
     }
 
@@ -42,6 +39,7 @@ public class BootStrap {
     public static synchronized BootStrap getInstance() {
         if (app == null) {
             app = new BootStrap();
+            app.users = new UserTable();
             app.users.add(new User("00000001","SUPERUSUARIO", "SUPERUSUARIO","Linus", "Tolvards","admin"));
             app.users.add(new User("34578123","pepito", "pepito","Pepito","Pérez","user"));
             app.users.add(new User("10987895","rosa", "rosa","Rosa","García","user"));

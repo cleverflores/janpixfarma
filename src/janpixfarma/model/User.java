@@ -5,11 +5,12 @@
  */
 package janpixfarma.model;
 
+
 /**
  *
  * @author clever
  */
-public class User {
+public class User{
 
     protected String dni;
     protected String username;
@@ -73,5 +74,10 @@ public class User {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+    
+    public String toString(){
+        return "dni: "+dni+", username: "+username+", password: "+ password +
+               ", nombres: "+nombres+", apellidos: "+apellidos+", role: "+ role;
     }
 }
