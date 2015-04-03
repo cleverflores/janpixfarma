@@ -20,9 +20,7 @@ public class MainController implements ActionListener {
     // enumeración para invocar al formulario seleccionado en el menú
     public enum Form {
 
-        USUARIO_REGISTRAR,
-        USUARIO_ACTUALIZAR,
-        USUARIO_ELIMINAR,
+        USUARIO_ADMINISTRAR,
         ADMIN_MEDICAMENTOS,
         ADMIN_CLIENTES,
         REPORTE_CAJA,
@@ -42,9 +40,9 @@ public class MainController implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         Form form = Form.valueOf(evento.getActionCommand());
         switch (form) {
-            case USUARIO_REGISTRAR:
+            case USUARIO_ADMINISTRAR:
                 // invocando la ventana principal
-                janpixfarma.modules.admin.controller.UsuarioRegistrarController.UsuarioRegistrar(this);
+                janpixfarma.modules.admin.controller.UsuarioAdministrarController.UsuarioAdministrar(this);
                 //JOptionPane.showMessageDialog(null, "Habla loco" + evento.getActionCommand() + "\n");
                 break;
             case ADMIN_MEDICAMENTOS:

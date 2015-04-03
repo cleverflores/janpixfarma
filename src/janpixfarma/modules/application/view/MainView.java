@@ -34,8 +34,6 @@ public class MainView extends javax.swing.JFrame {
     // definiendo controladores para los menus
     public void setController(MainController c) {
         RegistrarUsuario.addActionListener(c);
-        ActualizarUsuario.addActionListener(c);
-        EliminarUsuario.addActionListener(c);
         ReporteCaja.addActionListener(c);
         ReporteClientes.addActionListener(c);
         ReporteCompras.addActionListener(c);
@@ -59,8 +57,6 @@ public class MainView extends javax.swing.JFrame {
         Menu = new javax.swing.JMenuBar();
         Usuarios = new javax.swing.JMenu();
         RegistrarUsuario = new javax.swing.JMenuItem();
-        ActualizarUsuario = new javax.swing.JMenuItem();
-        EliminarUsuario = new javax.swing.JMenuItem();
         Medicamentos = new javax.swing.JMenu();
         AdministrarMedicamentos = new javax.swing.JMenuItem();
         Clientes = new javax.swing.JMenu();
@@ -91,22 +87,9 @@ public class MainView extends javax.swing.JFrame {
 
         Usuarios.setText("Usuarios");
 
-        RegistrarUsuario.setText("Registrar Usuario");
-        RegistrarUsuario.setActionCommand("USUARIO_REGISTRAR");
+        RegistrarUsuario.setText("Administrar Usuarios");
+        RegistrarUsuario.setActionCommand("USUARIO_ADMINISTRAR");
         Usuarios.add(RegistrarUsuario);
-
-        ActualizarUsuario.setText("Actualizar datos de usuario");
-        ActualizarUsuario.setActionCommand("USUARIO_ACTUALIZAR");
-        ActualizarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarUsuarioActionPerformed(evt);
-            }
-        });
-        Usuarios.add(ActualizarUsuario);
-
-        EliminarUsuario.setText("Eliminar Usuario");
-        EliminarUsuario.setActionCommand("USUARIO_ELIMINAR");
-        Usuarios.add(EliminarUsuario);
 
         Menu.add(Usuarios);
 
@@ -178,10 +161,6 @@ public class MainView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ActualizarUsuarioActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -218,12 +197,10 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ActualizarUsuario;
     private javax.swing.JMenuItem AdministrarClientes;
     private javax.swing.JMenuItem AdministrarMedicamentos;
     private javax.swing.JMenuItem CerrarSesion;
     private javax.swing.JMenu Clientes;
-    private javax.swing.JMenuItem EliminarUsuario;
     private javax.swing.JMenu Medicamentos;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem RegistrarUsuario;

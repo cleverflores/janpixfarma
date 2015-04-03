@@ -11,23 +11,8 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="RegistrarUsuario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
-                <Property name="actionCommand" type="java.lang.String" value="USUARIO_REGISTRAR"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ActualizarUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Actualizar datos de usuario"/>
-                <Property name="actionCommand" type="java.lang.String" value="USUARIO_ACTUALIZAR"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarUsuarioActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="EliminarUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
-                <Property name="actionCommand" type="java.lang.String" value="USUARIO_ELIMINAR"/>
+                <Property name="text" type="java.lang.String" value="Administrar Usuarios"/>
+                <Property name="actionCommand" type="java.lang.String" value="USUARIO_ADMINISTRAR"/>
               </Properties>
             </MenuItem>
           </SubComponents>

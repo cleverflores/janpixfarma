@@ -7,7 +7,7 @@ package janpixfarma.modules.admin.controller;
 
 import janpixfarma.modules.application.controller.MainController;
 import janpixfarma.modules.application.BootStrap;
-import janpixfarma.modules.admin.view.UsuarioRegistrarView;
+import janpixfarma.modules.admin.view.UsuarioAdministrarView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
@@ -20,9 +20,9 @@ import javax.swing.JOptionPane;
  *
  * @author clever
  */
-public class UsuarioRegistrarController implements ActionListener {
+public class UsuarioAdministrarController implements ActionListener {
 
-    protected UsuarioRegistrarView view;
+    protected UsuarioAdministrarView view;
     protected BootStrap app;
     javax.swing.JDesktopPane pane;
 
@@ -58,7 +58,7 @@ public class UsuarioRegistrarController implements ActionListener {
         }
     }
 
-    public UsuarioRegistrarController(MainController c, UsuarioRegistrarView view) {
+    public UsuarioAdministrarController(MainController c, UsuarioAdministrarView view) {
         // Inicializando datos de la aplicación
         app = BootStrap.getInstance();
 
@@ -78,17 +78,17 @@ public class UsuarioRegistrarController implements ActionListener {
         try {
             view.setMaximum(true);
         } catch (PropertyVetoException ex) {
-            Logger.getLogger(UsuarioRegistrarController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioAdministrarController.class.getName()).log(Level.SEVERE, null, ex);
         }
         view.setVisible(true);
     }
 
-    public static void UsuarioRegistrar(MainController c) {
-        // Invocando la vista de UsuarioRegistrar
-        UsuarioRegistrarView view = new UsuarioRegistrarView();
+    public static void UsuarioAdministrar(MainController c) {
+        // Invocando la vista de UsuarioAdministrar
+        UsuarioAdministrarView view = new UsuarioAdministrarView();
 
-        // Invocando controlador de UsuarioRegistrarView
-        UsuarioRegistrarController controller = new UsuarioRegistrarController(c, view);
+        // Invocando controlador de UsuarioAdministrarView
+        UsuarioAdministrarController controller = new UsuarioAdministrarController(c, view);
 
         // definiendo el controlador de la vista
         view.setController(controller);
