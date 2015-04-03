@@ -23,8 +23,39 @@ public class MainView extends javax.swing.JFrame {
         setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
     }
 
+    public javax.swing.JMenuBar getMenu(){
+        return Menu;
+    }
+    
+    public javax.swing.JDesktopPane getMainPane(){
+        return mainPane;
+    }
+    
+    // definiendo controladores para los menus
     public void setController(MainController c) {
-
+        RegistrarUsuario.addActionListener(c);
+        ActualizarUsuario.addActionListener(c);
+        EliminarUsuario.addActionListener(c);
+        RegistrarTipo.addActionListener(c);
+        ActualizarTipo.addActionListener(c);
+        EliminarTipo.addActionListener(c);
+        RegistrarPresentacion.addActionListener(c);
+        ActualizarPresentacion.addActionListener(c);
+        EliminarPresentacion.addActionListener(c);
+        RegistrarMedicamento.addActionListener(c);
+        ActualizarMedicamento.addActionListener(c);
+        EliminarMedicamento.addActionListener(c);
+        RegistrarCliente.addActionListener(c);
+        ActualizarCliente.addActionListener(c);
+        ActualizarPuntosBono.addActionListener(c);
+        EliminarCliente.addActionListener(c);
+        RegistrarVenta.addActionListener(c);
+        MostrarVenta.addActionListener(c);
+        ReporteCaja.addActionListener(c);
+        ReporteClientes.addActionListener(c);
+        ReporteCompras.addActionListener(c);
+        ReporteVentaUsuario.addActionListener(c);
+        ReporteRankingVentas.addActionListener(c);
     }
 
     /**
@@ -36,34 +67,197 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        mainPane = new javax.swing.JDesktopPane();
+        Menu = new javax.swing.JMenuBar();
+        Usuarios = new javax.swing.JMenu();
+        RegistrarUsuario = new javax.swing.JMenuItem();
+        ActualizarUsuario = new javax.swing.JMenuItem();
+        EliminarUsuario = new javax.swing.JMenuItem();
+        Medicamentos = new javax.swing.JMenu();
+        RegistrarTipo = new javax.swing.JMenuItem();
+        ActualizarTipo = new javax.swing.JMenuItem();
+        EliminarTipo = new javax.swing.JMenuItem();
+        RegistrarPresentacion = new javax.swing.JMenuItem();
+        ActualizarPresentacion = new javax.swing.JMenuItem();
+        EliminarPresentacion = new javax.swing.JMenuItem();
+        RegistrarMedicamento = new javax.swing.JMenuItem();
+        ActualizarMedicamento = new javax.swing.JMenuItem();
+        EliminarMedicamento = new javax.swing.JMenuItem();
+        Clientes = new javax.swing.JMenu();
+        RegistrarCliente = new javax.swing.JMenuItem();
+        ActualizarCliente = new javax.swing.JMenuItem();
+        ActualizarPuntosBono = new javax.swing.JMenuItem();
+        EliminarCliente = new javax.swing.JMenuItem();
+        Ventas = new javax.swing.JMenu();
+        RegistrarVenta = new javax.swing.JMenuItem();
+        MostrarVenta = new javax.swing.JMenuItem();
+        Reportes = new javax.swing.JMenu();
+        ReporteCaja = new javax.swing.JMenuItem();
+        ReporteClientes = new javax.swing.JMenuItem();
+        ReporteCompras = new javax.swing.JMenuItem();
+        ReporteVentaUsuario = new javax.swing.JMenuItem();
+        ReporteRankingVentas = new javax.swing.JMenuItem();
+        Salir = new javax.swing.JMenu();
+        SalirSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JANPIXFARMA SISTEMA DE FARMACIA");
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
+        mainPane.setLayout(mainPaneLayout);
+        mainPaneLayout.setHorizontalGroup(
+            mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 686, Short.MAX_VALUE)
+        );
+        mainPaneLayout.setVerticalGroup(
+            mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 438, Short.MAX_VALUE)
+        );
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        Usuarios.setText("Usuarios");
 
-        setJMenuBar(jMenuBar1);
+        RegistrarUsuario.setText("Registrar Usuario");
+        RegistrarUsuario.setActionCommand("USUARIO_REGISTRAR");
+        Usuarios.add(RegistrarUsuario);
+
+        ActualizarUsuario.setText("Actualizar datos de usuario");
+        ActualizarUsuario.setActionCommand("USUARIO_ACTUALIZAR");
+        ActualizarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarUsuarioActionPerformed(evt);
+            }
+        });
+        Usuarios.add(ActualizarUsuario);
+
+        EliminarUsuario.setText("Eliminar Usuario");
+        EliminarUsuario.setActionCommand("USUARIO_ELIMINAR");
+        Usuarios.add(EliminarUsuario);
+
+        Menu.add(Usuarios);
+
+        Medicamentos.setText("Medicamentos");
+
+        RegistrarTipo.setText("Registrar Tipo");
+        RegistrarTipo.setActionCommand("TIPO_REGISTRAR");
+        Medicamentos.add(RegistrarTipo);
+
+        ActualizarTipo.setText("Actualizar Tipo");
+        ActualizarTipo.setActionCommand("TIPO_ACTUALIZAR");
+        Medicamentos.add(ActualizarTipo);
+
+        EliminarTipo.setText("Eliminar Tipo");
+        EliminarTipo.setActionCommand("TIPO_ELIMINAR");
+        Medicamentos.add(EliminarTipo);
+
+        RegistrarPresentacion.setText("Registrar Presentación");
+        RegistrarPresentacion.setActionCommand("PRESENTACION_REGISTRAR");
+        Medicamentos.add(RegistrarPresentacion);
+
+        ActualizarPresentacion.setText("Actualizar Presentación");
+        ActualizarPresentacion.setActionCommand("PRESENTACION_ACTUALIZAR");
+        Medicamentos.add(ActualizarPresentacion);
+
+        EliminarPresentacion.setText("Eliminar Presentación");
+        EliminarPresentacion.setActionCommand("PRESENTACION_ELIMINAR");
+        Medicamentos.add(EliminarPresentacion);
+
+        RegistrarMedicamento.setText("Registrar medicamento");
+        RegistrarMedicamento.setActionCommand("MEDICAMENTO_REGISTRAR");
+        Medicamentos.add(RegistrarMedicamento);
+
+        ActualizarMedicamento.setText("Actualizar datos del medicamento");
+        ActualizarMedicamento.setActionCommand("MEDICAMENTO_ACTUALIZAR");
+        Medicamentos.add(ActualizarMedicamento);
+
+        EliminarMedicamento.setText("Eliminar medicamento");
+        EliminarMedicamento.setActionCommand("MEDICAMENTO_ELIMINAR");
+        Medicamentos.add(EliminarMedicamento);
+
+        Menu.add(Medicamentos);
+
+        Clientes.setText("Clientes");
+
+        RegistrarCliente.setText("Registrar cliente");
+        RegistrarCliente.setActionCommand("CLIENTE_REGISTRAR");
+        Clientes.add(RegistrarCliente);
+
+        ActualizarCliente.setText("Actualizar datos del cliente");
+        ActualizarCliente.setActionCommand("CLIENTE_ACTUALIZAR");
+        Clientes.add(ActualizarCliente);
+
+        ActualizarPuntosBono.setText("Actualizar puntos bono");
+        ActualizarPuntosBono.setActionCommand("CLIENTE_ACTUALIZAR_BONO");
+        Clientes.add(ActualizarPuntosBono);
+
+        EliminarCliente.setText("Eliminar cliente");
+        EliminarCliente.setActionCommand("CLIENTE_ELIMINAR");
+        Clientes.add(EliminarCliente);
+
+        Menu.add(Clientes);
+
+        Ventas.setText("Ventas");
+
+        RegistrarVenta.setText("Registrar Venta");
+        RegistrarVenta.setActionCommand("VENTA_REGISTRAR");
+        Ventas.add(RegistrarVenta);
+
+        MostrarVenta.setText("Mostrar Venta");
+        MostrarVenta.setActionCommand("VENTA_MOSTRAR");
+        Ventas.add(MostrarVenta);
+
+        Menu.add(Ventas);
+
+        Reportes.setText("Reportes");
+
+        ReporteCaja.setText("Reporte caja");
+        ReporteCaja.setActionCommand("REPORTE_CAJA");
+        Reportes.add(ReporteCaja);
+
+        ReporteClientes.setText("Reporte clientes");
+        ReporteClientes.setActionCommand("REPORTE_CLIENTES");
+        Reportes.add(ReporteClientes);
+
+        ReporteCompras.setText("Reporte compras");
+        ReporteCompras.setActionCommand("REPORTE_COMPRAS");
+        Reportes.add(ReporteCompras);
+
+        ReporteVentaUsuario.setText("Reporte venta de usuario");
+        ReporteVentaUsuario.setActionCommand("REPORTE_VENTA_USUARIO");
+        Reportes.add(ReporteVentaUsuario);
+
+        ReporteRankingVentas.setText("Reporte ranking de ventas");
+        ReporteRankingVentas.setActionCommand("REPORTE_RANKING");
+        Reportes.add(ReporteRankingVentas);
+
+        Menu.add(Reportes);
+
+        Salir.setText("Salir");
+
+        SalirSistema.setText("Salir del Sistema");
+        SalirSistema.setActionCommand("SALIR");
+        Salir.add(SalirSistema);
+
+        Menu.add(Salir);
+
+        setJMenuBar(Menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addComponent(mainPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 438, Short.MAX_VALUE)
+            .addComponent(mainPane)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ActualizarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,8 +295,37 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem ActualizarCliente;
+    private javax.swing.JMenuItem ActualizarMedicamento;
+    private javax.swing.JMenuItem ActualizarPresentacion;
+    private javax.swing.JMenuItem ActualizarPuntosBono;
+    private javax.swing.JMenuItem ActualizarTipo;
+    private javax.swing.JMenuItem ActualizarUsuario;
+    private javax.swing.JMenu Clientes;
+    private javax.swing.JMenuItem EliminarCliente;
+    private javax.swing.JMenuItem EliminarMedicamento;
+    private javax.swing.JMenuItem EliminarPresentacion;
+    private javax.swing.JMenuItem EliminarTipo;
+    private javax.swing.JMenuItem EliminarUsuario;
+    private javax.swing.JMenu Medicamentos;
+    private javax.swing.JMenuBar Menu;
+    private javax.swing.JMenuItem MostrarVenta;
+    private javax.swing.JMenuItem RegistrarCliente;
+    private javax.swing.JMenuItem RegistrarMedicamento;
+    private javax.swing.JMenuItem RegistrarPresentacion;
+    private javax.swing.JMenuItem RegistrarTipo;
+    private javax.swing.JMenuItem RegistrarUsuario;
+    private javax.swing.JMenuItem RegistrarVenta;
+    private javax.swing.JMenuItem ReporteCaja;
+    private javax.swing.JMenuItem ReporteClientes;
+    private javax.swing.JMenuItem ReporteCompras;
+    private javax.swing.JMenuItem ReporteRankingVentas;
+    private javax.swing.JMenuItem ReporteVentaUsuario;
+    private javax.swing.JMenu Reportes;
+    private javax.swing.JMenu Salir;
+    private javax.swing.JMenuItem SalirSistema;
+    private javax.swing.JMenu Usuarios;
+    private javax.swing.JMenu Ventas;
+    private javax.swing.JDesktopPane mainPane;
     // End of variables declaration//GEN-END:variables
 }

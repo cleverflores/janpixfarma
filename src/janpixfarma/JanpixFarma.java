@@ -19,6 +19,6 @@ public class JanpixFarma {
         janpixfarma.modules.application.BootStrap.getInstance();
         
         // Login de usuario
-        janpixfarma.modules.application.Application.Login();
+        janpixfarma.modules.application.controller.LoginController.Login();
     }
 }

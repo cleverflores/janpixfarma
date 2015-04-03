@@ -17,10 +17,15 @@ public class LoginController implements ActionListener {
     LoginView view;
     BootStrap app;
 
-    public LoginController(LoginModel model, LoginView view) {
-        this.model = model;
-        this.view = view;
+    public LoginController(LoginView view, LoginModel model) {
+        // obteniendo datos de la aplicación
         app = BootStrap.getInstance();
+
+        // invocando a la vista de Login
+        this.view = view;
+        
+        this.model = model;
+        
     }
 
     @Override
@@ -37,9 +42,26 @@ public class LoginController implements ActionListener {
             }
             view.setVisible(false);
             // invocando la ventana principal
-            janpixfarma.modules.application.Application.Main();
+            janpixfarma.modules.application.controller.MainController.Main();
         } else {
             JOptionPane.showMessageDialog(null, "ACCESO INCORRECTO, intente de nuevo" + "\n");
         }
+    }
+
+    public static void Login() {
+        // Invocando la vista de Login
+        LoginView view = new LoginView();
+
+        // Invocando al modelo de Login
+        LoginModel model = new LoginModel();
+
+        // Invocando controlador de LoginView
+        LoginController controller = new LoginController(view,model);
+
+        // definiendo el controlador de la vista
+        view.setController(controller);
+
+        // Mostrando la ventana de Main
+        view.setVisible(true);
     }
 }

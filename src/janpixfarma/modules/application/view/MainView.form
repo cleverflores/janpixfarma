@@ -1,18 +1,197 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Menu class="javax.swing.JMenuBar" name="Menu">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="Usuarios">
           <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="text" type="java.lang.String" value="Usuarios"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
+                <Property name="actionCommand" type="java.lang.String" value="USUARIO_REGISTRAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ActualizarUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar datos de usuario"/>
+                <Property name="actionCommand" type="java.lang.String" value="USUARIO_ACTUALIZAR"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarUsuarioActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="EliminarUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
+                <Property name="actionCommand" type="java.lang.String" value="USUARIO_ELIMINAR"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="Medicamentos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Medicamentos"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarTipo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Tipo"/>
+                <Property name="actionCommand" type="java.lang.String" value="TIPO_REGISTRAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ActualizarTipo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar Tipo"/>
+                <Property name="actionCommand" type="java.lang.String" value="TIPO_ACTUALIZAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="EliminarTipo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar Tipo"/>
+                <Property name="actionCommand" type="java.lang.String" value="TIPO_ELIMINAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarPresentacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Presentaci&#xf3;n"/>
+                <Property name="actionCommand" type="java.lang.String" value="PRESENTACION_REGISTRAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ActualizarPresentacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar Presentaci&#xf3;n"/>
+                <Property name="actionCommand" type="java.lang.String" value="PRESENTACION_ACTUALIZAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="EliminarPresentacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar Presentaci&#xf3;n"/>
+                <Property name="actionCommand" type="java.lang.String" value="PRESENTACION_ELIMINAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarMedicamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar medicamento"/>
+                <Property name="actionCommand" type="java.lang.String" value="MEDICAMENTO_REGISTRAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ActualizarMedicamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar datos del medicamento"/>
+                <Property name="actionCommand" type="java.lang.String" value="MEDICAMENTO_ACTUALIZAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="EliminarMedicamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar medicamento"/>
+                <Property name="actionCommand" type="java.lang.String" value="MEDICAMENTO_ELIMINAR"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="Clientes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Clientes"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarCliente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar cliente"/>
+                <Property name="actionCommand" type="java.lang.String" value="CLIENTE_REGISTRAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ActualizarCliente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar datos del cliente"/>
+                <Property name="actionCommand" type="java.lang.String" value="CLIENTE_ACTUALIZAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ActualizarPuntosBono">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar puntos bono"/>
+                <Property name="actionCommand" type="java.lang.String" value="CLIENTE_ACTUALIZAR_BONO"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="EliminarCliente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Eliminar cliente"/>
+                <Property name="actionCommand" type="java.lang.String" value="CLIENTE_ELIMINAR"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="Ventas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ventas"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarVenta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Venta"/>
+                <Property name="actionCommand" type="java.lang.String" value="VENTA_REGISTRAR"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="MostrarVenta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar Venta"/>
+                <Property name="actionCommand" type="java.lang.String" value="VENTA_MOSTRAR"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="Reportes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reportes"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="ReporteCaja">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte caja"/>
+                <Property name="actionCommand" type="java.lang.String" value="REPORTE_CAJA"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ReporteClientes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte clientes"/>
+                <Property name="actionCommand" type="java.lang.String" value="REPORTE_CLIENTES"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ReporteCompras">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte compras"/>
+                <Property name="actionCommand" type="java.lang.String" value="REPORTE_COMPRAS"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ReporteVentaUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte venta de usuario"/>
+                <Property name="actionCommand" type="java.lang.String" value="REPORTE_VENTA_USUARIO"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ReporteRankingVentas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reporte ranking de ventas"/>
+                <Property name="actionCommand" type="java.lang.String" value="REPORTE_RANKING"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="Salir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Salir"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="SalirSistema">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salir del Sistema"/>
+                <Property name="actionCommand" type="java.lang.String" value="SALIR"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -22,7 +201,7 @@
     <Property name="title" type="java.lang.String" value="JANPIXFARMA SISTEMA DE FARMACIA"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="Menu"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -41,13 +220,30 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="686" max="32767" attributes="0"/>
+          <Component id="mainPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="438" max="32767" attributes="0"/>
+          <Component id="mainPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JDesktopPane" name="mainPane">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="686" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="438" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+  </SubComponents>
 </Form>
