@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import janpixfarma.model.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,20 +24,57 @@ public class UsuarioRegistrarController implements ActionListener {
 
     protected UsuarioRegistrarView view;
     protected BootStrap app;
+    javax.swing.JDesktopPane pane;
 
     @Override
     public void actionPerformed(ActionEvent evento) {
+        String dni, username, password, nombres, apellidos, role;
+        dni = view.getDni().getText().trim();
+        username = view.getUserName().getText().trim();
+        password = new String(view.getPassword().getPassword()).trim();
+        nombres = view.getNombres().getText();
+        apellidos = view.getApellidos().getText();
+        role = view.getRole().getSelectedItem().toString();
+
+        if (!app.getUsers().findByUsername(dni) && !app.getUsers().findByUsername(username)) {
+            if (!dni.equals("") && !username.equals("") && !password.equals("")) {
+                User u = new User(dni, username, password, nombres, apellidos, role);
+                //agregando nuevo usuario
+                app.getUsers().add(u);
+                JOptionPane.showMessageDialog(null, "Usuario " + username + " agregado con éxito");
+                view.getDni().setText("");
+                view.getUserName().setText("");
+                view.getPassword().setText("");
+                view.getNombres().setText("");
+                view.getApellidos().setText("");
+                view.getDni().requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(null, "No deje los campos dni, usuario y password vacíos");
+                view.getDni().requestFocus();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario " + username + " con dni " + dni + " ya existe");
+            view.getDni().requestFocus();
+        }
     }
 
     public UsuarioRegistrarController(MainController c, UsuarioRegistrarView view) {
+        // Inicializando datos de la aplicación
+        app = BootStrap.getInstance();
+
         // invocando a la vista de Main
         janpixfarma.modules.application.view.MainView mainView = c.getMainView();
-        // obteniendo el pane
-        javax.swing.JDesktopPane pane = mainView.getMainPane();
 
+        // obteniendo el pane
+        pane = mainView.getMainPane();
+
+        // vista de registro de usuario
         this.view = view;
 
+        // agredando al desktopPane el formulario de registro de usuario
         pane.add(view);
+
+        // maximizando el formulario de registro del usuario
         try {
             view.setMaximum(true);
         } catch (PropertyVetoException ex) {

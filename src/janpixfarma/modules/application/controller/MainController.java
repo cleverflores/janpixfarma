@@ -17,7 +17,6 @@ public class MainController implements ActionListener {
 
     // enumeración para invocar al formulario seleccionado en el menú
     public enum Form {
-
         USUARIO_REGISTRAR,
         USUARIO_ACTUALIZAR,
         USUARIO_ELIMINAR,
@@ -41,6 +40,7 @@ public class MainController implements ActionListener {
         REPORTE_COMPRAS,
         REPORTE_VENTA_USUARIO,
         REPORTE_RANKING,
+        CERRAR_SESION,
         SALIR
     }
 
@@ -57,7 +57,6 @@ public class MainController implements ActionListener {
                 janpixfarma.modules.admin.controller.UsuarioRegistrarController.UsuarioRegistrar(this);
                 //JOptionPane.showMessageDialog(null, "Habla loco" + evento.getActionCommand() + "\n");
                 break;
-
         }
     }
 
@@ -70,11 +69,11 @@ public class MainController implements ActionListener {
         // Si el usuario no es administrador no se le muestra
         // el menú para administrar usuarios (índice 0)
         if (!app.isAdmin()) {
-            this.view.getMenu().remove(0);
+            view.getMenu().remove(0);
         }
 
         // Mostrando la ventana de Main
-        this.view.setVisible(true);
+        view.setVisible(true);
     }
 
     public static void Main() {

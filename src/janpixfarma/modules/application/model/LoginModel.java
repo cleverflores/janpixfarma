@@ -21,9 +21,9 @@ public class LoginModel {
 
     public boolean Login(String username, String password) {
         for (int i = 0; i < app.getUsers().size(); i++) {
-            if (app.getUsers().get(i).getUsername().equals(username) && app.getUsers().get(i).getPassword().equals(password)) {
-                app.setUser(app.getUsers().get(i));
-                if (app.getUsers().get(i).getRole().equals("admin")) {
+            if (app.getUsers().getUser(i).getUsername().equals(username) && app.getUsers().getUser(i).getPassword().equals(password)) {
+                app.setUser(app.getUsers().getUser(i));
+                if (app.getUsers().getUser(i).getRole().equals("admin")) {
                     app.setAdmin(true);
                 }
                 return true;
