@@ -1,5 +1,7 @@
 package janpixfarma.modules.application.controller;
 
+import janpixfarma.Medicamento;
+import janpixfarma.Cliente;
 import janpixfarma.modules.application.view.MainView;
 import janpixfarma.modules.application.BootStrap;
 import java.awt.event.ActionListener;
@@ -17,24 +19,12 @@ public class MainController implements ActionListener {
 
     // enumeración para invocar al formulario seleccionado en el menú
     public enum Form {
+
         USUARIO_REGISTRAR,
         USUARIO_ACTUALIZAR,
         USUARIO_ELIMINAR,
-        TIPO_REGISTRAR,
-        TIPO_ACTUALIZAR,
-        TIPO_ELIMINAR,
-        PRESENTACION_REGISTRAR,
-        PRESENTACION_ACTUALIZAR,
-        PRESENTACION_ELIMINAR,
-        MEDICAMENTO_REGISTRAR,
-        MEDICAMENTO_ACTUALIZAR,
-        MEDICAMENTO_ELIMINAR,
-        CLIENTE_REGISTRAR,
-        CLIENTE_ACTUALIZAR,
-        CLIENTE_ACTUALIZAR_BONO,
-        CLIENTE_ELIMINAR,
-        VENTA_REGISTRAR,
-        VENTA_MOSTRAR,
+        ADMIN_MEDICAMENTOS,
+        ADMIN_CLIENTES,
         REPORTE_CAJA,
         REPORTE_CLIENTES,
         REPORTE_COMPRAS,
@@ -57,6 +47,38 @@ public class MainController implements ActionListener {
                 janpixfarma.modules.admin.controller.UsuarioRegistrarController.UsuarioRegistrar(this);
                 //JOptionPane.showMessageDialog(null, "Habla loco" + evento.getActionCommand() + "\n");
                 break;
+            case ADMIN_MEDICAMENTOS:
+                Medicamento formulario1 = new Medicamento();
+                formulario1.setBounds(10, 20, 800, 600);
+                formulario1.setVisible(true);
+                //JOptionPane.showMessageDialog(null, "Habla loco" + evento.getActionCommand() + "\n");
+                break;
+            case ADMIN_CLIENTES:
+                Cliente cliente = new Cliente();
+                cliente.setVisible(true);
+                cliente.toFront();
+                //JOptionPane.showMessageDialog(null, "Habla loco" + evento.getActionCommand() + "\n");
+                break;
+            case REPORTE_CAJA:
+                janpixfarma.ReporteCaja repcaja = new janpixfarma.ReporteCaja();
+                repcaja.setVisible(true);
+                break;
+            case REPORTE_CLIENTES:
+                janpixfarma.ReporteCliente repcliente = new janpixfarma.ReporteCliente();
+                repcliente.setVisible(true);
+                break;
+            case REPORTE_COMPRAS:    
+                janpixfarma.ReporteCompras repcompras = new janpixfarma.ReporteCompras();
+                repcompras.setVisible(true);
+                break;                
+            case REPORTE_VENTA_USUARIO:
+                janpixfarma.reporVentas repventas = new janpixfarma.reporVentas();
+                repventas.setVisible(true);
+                break;
+            case REPORTE_RANKING:
+                janpixfarma.rankVentas repranking = new janpixfarma.rankVentas();
+                repranking.setVisible(true);
+                break;
         }
     }
 
@@ -65,7 +87,7 @@ public class MainController implements ActionListener {
         app = BootStrap.getInstance();
 
         this.view = view;
-        
+
         // Si el usuario no es administrador no se le muestra
         // el menú para administrar usuarios (índice 0)
         if (!app.isAdmin()) {

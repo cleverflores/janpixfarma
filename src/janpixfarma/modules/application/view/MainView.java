@@ -36,27 +36,14 @@ public class MainView extends javax.swing.JFrame {
         RegistrarUsuario.addActionListener(c);
         ActualizarUsuario.addActionListener(c);
         EliminarUsuario.addActionListener(c);
-        RegistrarTipo.addActionListener(c);
-        ActualizarTipo.addActionListener(c);
-        EliminarTipo.addActionListener(c);
-        RegistrarPresentacion.addActionListener(c);
-        ActualizarPresentacion.addActionListener(c);
-        EliminarPresentacion.addActionListener(c);
-        RegistrarMedicamento.addActionListener(c);
-        ActualizarMedicamento.addActionListener(c);
-        EliminarMedicamento.addActionListener(c);
-        RegistrarCliente.addActionListener(c);
-        ActualizarCliente.addActionListener(c);
-        ActualizarPuntosBono.addActionListener(c);
-        EliminarCliente.addActionListener(c);
-        RegistrarVenta.addActionListener(c);
-        MostrarVenta.addActionListener(c);
         ReporteCaja.addActionListener(c);
         ReporteClientes.addActionListener(c);
         ReporteCompras.addActionListener(c);
         ReporteVentaUsuario.addActionListener(c);
         ReporteRankingVentas.addActionListener(c);
         CerrarSesion.addActionListener(c);
+        AdministrarMedicamentos.addActionListener(c);
+        AdministrarClientes.addActionListener(c);
     }
 
     /**
@@ -75,23 +62,9 @@ public class MainView extends javax.swing.JFrame {
         ActualizarUsuario = new javax.swing.JMenuItem();
         EliminarUsuario = new javax.swing.JMenuItem();
         Medicamentos = new javax.swing.JMenu();
-        RegistrarTipo = new javax.swing.JMenuItem();
-        ActualizarTipo = new javax.swing.JMenuItem();
-        EliminarTipo = new javax.swing.JMenuItem();
-        RegistrarPresentacion = new javax.swing.JMenuItem();
-        ActualizarPresentacion = new javax.swing.JMenuItem();
-        EliminarPresentacion = new javax.swing.JMenuItem();
-        RegistrarMedicamento = new javax.swing.JMenuItem();
-        ActualizarMedicamento = new javax.swing.JMenuItem();
-        EliminarMedicamento = new javax.swing.JMenuItem();
+        AdministrarMedicamentos = new javax.swing.JMenuItem();
         Clientes = new javax.swing.JMenu();
-        RegistrarCliente = new javax.swing.JMenuItem();
-        ActualizarCliente = new javax.swing.JMenuItem();
-        ActualizarPuntosBono = new javax.swing.JMenuItem();
-        EliminarCliente = new javax.swing.JMenuItem();
-        Ventas = new javax.swing.JMenu();
-        RegistrarVenta = new javax.swing.JMenuItem();
-        MostrarVenta = new javax.swing.JMenuItem();
+        AdministrarClientes = new javax.swing.JMenuItem();
         Reportes = new javax.swing.JMenu();
         ReporteCaja = new javax.swing.JMenuItem();
         ReporteClientes = new javax.swing.JMenuItem();
@@ -139,75 +112,19 @@ public class MainView extends javax.swing.JFrame {
 
         Medicamentos.setText("Medicamentos");
 
-        RegistrarTipo.setText("Registrar Tipo");
-        RegistrarTipo.setActionCommand("TIPO_REGISTRAR");
-        Medicamentos.add(RegistrarTipo);
-
-        ActualizarTipo.setText("Actualizar Tipo");
-        ActualizarTipo.setActionCommand("TIPO_ACTUALIZAR");
-        Medicamentos.add(ActualizarTipo);
-
-        EliminarTipo.setText("Eliminar Tipo");
-        EliminarTipo.setActionCommand("TIPO_ELIMINAR");
-        Medicamentos.add(EliminarTipo);
-
-        RegistrarPresentacion.setText("Registrar Presentación");
-        RegistrarPresentacion.setActionCommand("PRESENTACION_REGISTRAR");
-        Medicamentos.add(RegistrarPresentacion);
-
-        ActualizarPresentacion.setText("Actualizar Presentación");
-        ActualizarPresentacion.setActionCommand("PRESENTACION_ACTUALIZAR");
-        Medicamentos.add(ActualizarPresentacion);
-
-        EliminarPresentacion.setText("Eliminar Presentación");
-        EliminarPresentacion.setActionCommand("PRESENTACION_ELIMINAR");
-        Medicamentos.add(EliminarPresentacion);
-
-        RegistrarMedicamento.setText("Registrar medicamento");
-        RegistrarMedicamento.setActionCommand("MEDICAMENTO_REGISTRAR");
-        Medicamentos.add(RegistrarMedicamento);
-
-        ActualizarMedicamento.setText("Actualizar datos del medicamento");
-        ActualizarMedicamento.setActionCommand("MEDICAMENTO_ACTUALIZAR");
-        Medicamentos.add(ActualizarMedicamento);
-
-        EliminarMedicamento.setText("Eliminar medicamento");
-        EliminarMedicamento.setActionCommand("MEDICAMENTO_ELIMINAR");
-        Medicamentos.add(EliminarMedicamento);
+        AdministrarMedicamentos.setText("Administrar Medicamentos");
+        AdministrarMedicamentos.setActionCommand("ADMIN_MEDICAMENTOS");
+        Medicamentos.add(AdministrarMedicamentos);
 
         Menu.add(Medicamentos);
 
         Clientes.setText("Clientes");
 
-        RegistrarCliente.setText("Registrar cliente");
-        RegistrarCliente.setActionCommand("CLIENTE_REGISTRAR");
-        Clientes.add(RegistrarCliente);
-
-        ActualizarCliente.setText("Actualizar datos del cliente");
-        ActualizarCliente.setActionCommand("CLIENTE_ACTUALIZAR");
-        Clientes.add(ActualizarCliente);
-
-        ActualizarPuntosBono.setText("Actualizar puntos bono");
-        ActualizarPuntosBono.setActionCommand("CLIENTE_ACTUALIZAR_BONO");
-        Clientes.add(ActualizarPuntosBono);
-
-        EliminarCliente.setText("Eliminar cliente");
-        EliminarCliente.setActionCommand("CLIENTE_ELIMINAR");
-        Clientes.add(EliminarCliente);
+        AdministrarClientes.setText("Administrar Clientes y Ventas");
+        AdministrarClientes.setActionCommand("ADMIN_CLIENTES");
+        Clientes.add(AdministrarClientes);
 
         Menu.add(Clientes);
-
-        Ventas.setText("Ventas");
-
-        RegistrarVenta.setText("Registrar Venta");
-        RegistrarVenta.setActionCommand("VENTA_REGISTRAR");
-        Ventas.add(RegistrarVenta);
-
-        MostrarVenta.setText("Mostrar Venta");
-        MostrarVenta.setActionCommand("VENTA_MOSTRAR");
-        Ventas.add(MostrarVenta);
-
-        Menu.add(Ventas);
 
         Reportes.setText("Reportes");
 
@@ -301,28 +218,15 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ActualizarCliente;
-    private javax.swing.JMenuItem ActualizarMedicamento;
-    private javax.swing.JMenuItem ActualizarPresentacion;
-    private javax.swing.JMenuItem ActualizarPuntosBono;
-    private javax.swing.JMenuItem ActualizarTipo;
     private javax.swing.JMenuItem ActualizarUsuario;
+    private javax.swing.JMenuItem AdministrarClientes;
+    private javax.swing.JMenuItem AdministrarMedicamentos;
     private javax.swing.JMenuItem CerrarSesion;
     private javax.swing.JMenu Clientes;
-    private javax.swing.JMenuItem EliminarCliente;
-    private javax.swing.JMenuItem EliminarMedicamento;
-    private javax.swing.JMenuItem EliminarPresentacion;
-    private javax.swing.JMenuItem EliminarTipo;
     private javax.swing.JMenuItem EliminarUsuario;
     private javax.swing.JMenu Medicamentos;
     private javax.swing.JMenuBar Menu;
-    private javax.swing.JMenuItem MostrarVenta;
-    private javax.swing.JMenuItem RegistrarCliente;
-    private javax.swing.JMenuItem RegistrarMedicamento;
-    private javax.swing.JMenuItem RegistrarPresentacion;
-    private javax.swing.JMenuItem RegistrarTipo;
     private javax.swing.JMenuItem RegistrarUsuario;
-    private javax.swing.JMenuItem RegistrarVenta;
     private javax.swing.JMenuItem ReporteCaja;
     private javax.swing.JMenuItem ReporteClientes;
     private javax.swing.JMenuItem ReporteCompras;
@@ -332,7 +236,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenu Salir;
     private javax.swing.JMenuItem SalirSistema;
     private javax.swing.JMenu Usuarios;
-    private javax.swing.JMenu Ventas;
     private javax.swing.JDesktopPane mainPane;
     // End of variables declaration//GEN-END:variables
 }
