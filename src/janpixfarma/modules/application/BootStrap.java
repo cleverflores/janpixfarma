@@ -106,25 +106,25 @@ public class BootStrap {
             BootStrap.presmedicamentos[16] = "mucílago";
 
             // Carga de medicamentos
-            NombreMed[0] = "dolocordalán";
-            Compuesto[0] = "paracetamol 500mg";
-            Cantidad[0] = 500;
-            PrecioUnit[0] = 0.50;
-            DiaVenc[0] = 15;
-            MesVenc[0] = 3;
-            AnoVenc[0] = 2016;
-            TipoMed[0] = "analgésico";
-            PresMed[0] = "pastilla";
+            BootStrap.NombreMed[0] = "dolocordalán";
+            BootStrap.Compuesto[0] = "paracetamol 500mg";
+            BootStrap.Cantidad[0] = 500;
+            BootStrap.PrecioUnit[0] = 0.50;
+            BootStrap.DiaVenc[0] = 15;
+            BootStrap.MesVenc[0] = 3;
+            BootStrap.AnoVenc[0] = 2016;
+            BootStrap.TipoMed[0] = "analgésico";
+            BootStrap.PresMed[0] = "pastilla";
 
-            NombreMed[1] = "panadol";
-            Compuesto[1] = "paracetamol 500mg";
-            Cantidad[1] = 500;
-            PrecioUnit[1] = 1.0;
-            DiaVenc[1] = 12;
-            MesVenc[1] = 12;
-            AnoVenc[1] = 2016;
-            TipoMed[1] = "analgésico";
-            PresMed[1] = "pastilla";
+            BootStrap.NombreMed[1] = "panadol";
+            BootStrap.Compuesto[1] = "paracetamol 500mg";
+            BootStrap.Cantidad[1] = 500;
+            BootStrap.PrecioUnit[1] = 1.0;
+            BootStrap.DiaVenc[1] = 12;
+            BootStrap.MesVenc[1] = 12;
+            BootStrap.AnoVenc[1] = 2016;
+            BootStrap.TipoMed[1] = "analgésico";
+            BootStrap.PresMed[1] = "pastilla";
 
         }
         return app;
