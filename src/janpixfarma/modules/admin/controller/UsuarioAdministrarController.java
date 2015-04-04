@@ -169,11 +169,11 @@ public class UsuarioAdministrarController implements ActionListener {
 
         // obteniendo el pane
         pane = mainView.getMainPane();
-
+        pane.removeAll();
         // vista de registro de usuario
         this.view = view;
 
-        // agredando al desktopPane el formulario de registro de usuario
+        // agredando al desktopPane el formulario de administración de usuarios
         pane.add(view);
 
         // maximizando el formulario de registro del usuario

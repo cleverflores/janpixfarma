@@ -20,34 +20,25 @@ package janpixfarma;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import janpixfarma.modules.application.BootStrap;
 
-public class Medicamento extends JFrame implements ActionListener {
+public class Medicamento extends JInternalFrame implements ActionListener {
 
     private final JMenuBar mb;
     private final JMenu menu1;
     private final JMenu menu2;
     private final JMenu menu3;
-    private final JMenu menu4;
     private final JMenuItem mi1, mi2, mi3, mi4, mi5, mi6, mi7, mi8, mi9, mi10;
 
     private JButton Actualizar, Eliminar;
     private JTextField Campo;
+    protected BootStrap app;
 
-    public static String tiposmedicamentos[] = new String[10];
-    public static String presmedicamentos[] = new String[10];
     public static int tamTM;
     public static int tamPM;
 
     // Definición de matrices para la Carga de Medicamentos
-    public static String NombreMed[] = new String[10];
-    public static String Compuesto[] = new String[10];
-    public static int Cantidad[] = new int[10];
-    public static double PrecioUnit[] = new double[10];
-    public static int DiaVenc[] = new int[10];
-    public static int MesVenc[] = new int[10];
-    public static int AnoVenc[] = new int[10];
-    public static String TipoMed[] = new String[10];
-    public static String PresMed[] = new String[10];
+
     public static int tamCM;
     public static int seleccion;
     public static int seleccion2;
@@ -64,12 +55,12 @@ public class Medicamento extends JFrame implements ActionListener {
         menu1 = new JMenu("Tipos de Medicamentos");
         menu2 = new JMenu("Presentación del Medicamento");
         menu3 = new JMenu("Carga de Medicamento");
-        menu4 = new JMenu("Volver al Menu Anterior");
+
 
         mb.add(menu1);
         mb.add(menu2);
         mb.add(menu3);
-        mb.add(menu4);
+
 
         mi1 = new JMenuItem("Registrar Tipo");
         mi1.addActionListener(this);
@@ -112,13 +103,13 @@ public class Medicamento extends JFrame implements ActionListener {
 
         if (e.getSource() == mi1) {
 
-            for (tamTM = 0; tamTM < tiposmedicamentos.length; tamTM++) {
+            for (tamTM = 0; tamTM < BootStrap.tiposmedicamentos.length; tamTM++) {
 
-                if (tiposmedicamentos[tamTM] == null) {
+                if (BootStrap.tiposmedicamentos[tamTM] == null) {
 
                     String seleccion = JOptionPane.showInputDialog(null, "Registrar tipo", "Tipos de Medicamentos", JOptionPane.QUESTION_MESSAGE);
-                    tiposmedicamentos[tamTM] = seleccion;
-                    System.out.println(tiposmedicamentos[tamTM]);
+                    BootStrap.tiposmedicamentos[tamTM] = seleccion;
+                    System.out.println(BootStrap.tiposmedicamentos[tamTM]);
 
                     int opcion;
                     opcion = JOptionPane.showConfirmDialog(null, "Desea ingresar otro Tipo?", "Tipos de Medicamentos", JOptionPane.YES_NO_OPTION);
@@ -127,7 +118,7 @@ public class Medicamento extends JFrame implements ActionListener {
 
                     } else {
 
-                        tamTM = tiposmedicamentos.length;
+                        tamTM = BootStrap.tiposmedicamentos.length;
 
                     }
 
@@ -141,7 +132,7 @@ public class Medicamento extends JFrame implements ActionListener {
         if (e.getSource() == mi2) {
 
             final JList ActualizaTipo;
-            ActualizaTipo = new JList(tiposmedicamentos);
+            ActualizaTipo = new JList(BootStrap.tiposmedicamentos);
             ActualizaTipo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
             JFrame ventana = new JFrame();
@@ -158,8 +149,8 @@ public class Medicamento extends JFrame implements ActionListener {
                 public void actionPerformed(ActionEvent e) {
 
                     int indice = ActualizaTipo.getSelectedIndex();
-                    String Actualiza = JOptionPane.showInputDialog("Tipos de Medicamentos", tiposmedicamentos[indice]);
-                    tiposmedicamentos[indice] = Actualiza;
+                    String Actualiza = JOptionPane.showInputDialog("Tipos de Medicamentos", BootStrap.tiposmedicamentos[indice]);
+                    BootStrap.tiposmedicamentos[indice] = Actualiza;
                     ;
                 }
             });
@@ -172,7 +163,7 @@ public class Medicamento extends JFrame implements ActionListener {
         if (e.getSource() == mi3) {
 
             final JList EliminaTipo;
-            EliminaTipo = new JList(tiposmedicamentos);
+            EliminaTipo = new JList(BootStrap.tiposmedicamentos);
             EliminaTipo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
             JFrame ventana = new JFrame();
@@ -189,7 +180,7 @@ public class Medicamento extends JFrame implements ActionListener {
 
                     int indice = EliminaTipo.getSelectedIndex();
 
-                    tiposmedicamentos[indice] = null;
+                    BootStrap.tiposmedicamentos[indice] = null;
                     System.out.println("La posicion es " + indice); // FLAG
 
                     JOptionPane.showMessageDialog(null, "Ha eliminado el tipo seleccionado", "Eliminar Tipos", JOptionPane.INFORMATION_MESSAGE);
@@ -202,13 +193,13 @@ public class Medicamento extends JFrame implements ActionListener {
 
         if (e.getSource() == mi4) {
 
-            for (tamPM = 0; tamPM < presmedicamentos.length; tamPM++) {
+            for (tamPM = 0; tamPM < BootStrap.presmedicamentos.length; tamPM++) {
 
-                if (presmedicamentos[tamPM] == null) {
+                if (BootStrap.presmedicamentos[tamPM] == null) {
 
                     String seleccion = JOptionPane.showInputDialog(null, "Registrar Presentación", "Presentación de Medicamentos", JOptionPane.QUESTION_MESSAGE);
-                    presmedicamentos[tamPM] = seleccion;
-                    System.out.println(presmedicamentos[tamPM]);
+                    BootStrap.presmedicamentos[tamPM] = seleccion;
+                    System.out.println(BootStrap.presmedicamentos[tamPM]);
 
                     int opcion;
                     opcion = JOptionPane.showConfirmDialog(null, "Desea ingresar otra Presentación?", "Presentación de Medicamentos", JOptionPane.YES_NO_OPTION);
@@ -217,7 +208,7 @@ public class Medicamento extends JFrame implements ActionListener {
 
                     } else {
 
-                        tamPM = presmedicamentos.length;
+                        tamPM = BootStrap.presmedicamentos.length;
 
                     }
 
@@ -230,7 +221,7 @@ public class Medicamento extends JFrame implements ActionListener {
         if (e.getSource() == mi5) {
 
             final JList ActualizaPres;
-            ActualizaPres = new JList(presmedicamentos);
+            ActualizaPres = new JList(BootStrap.presmedicamentos);
             ActualizaPres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
             JFrame ventana = new JFrame();
@@ -247,8 +238,8 @@ public class Medicamento extends JFrame implements ActionListener {
                 public void actionPerformed(ActionEvent e) {
 
                     int indice = ActualizaPres.getSelectedIndex();
-                    String Actualiza = JOptionPane.showInputDialog("Presentacion de Medicamentos", presmedicamentos[indice]);
-                    presmedicamentos[indice] = Actualiza;
+                    String Actualiza = JOptionPane.showInputDialog("Presentacion de Medicamentos", BootStrap.presmedicamentos[indice]);
+                    BootStrap.presmedicamentos[indice] = Actualiza;
                     ;
                 }
             });
@@ -261,7 +252,7 @@ public class Medicamento extends JFrame implements ActionListener {
         if (e.getSource() == mi6) {
 
             final JList EliminaPres;
-            EliminaPres = new JList(presmedicamentos);
+            EliminaPres = new JList(BootStrap.presmedicamentos);
             EliminaPres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
             JFrame ventana = new JFrame();
@@ -278,7 +269,7 @@ public class Medicamento extends JFrame implements ActionListener {
 
                     int indice = EliminaPres.getSelectedIndex();
 
-                    presmedicamentos[indice] = null;
+                    BootStrap.presmedicamentos[indice] = null;
 
                     JOptionPane.showMessageDialog(null, "Ha eliminado la presentación seleccionada", "Eliminar Presentación", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -300,8 +291,8 @@ public class Medicamento extends JFrame implements ActionListener {
             JTextField VenceAno = new JTextField(2);
 
             //construyo los combos
-            final JComboBox comboTipo = new JComboBox(tiposmedicamentos);
-            final JComboBox comboPres = new JComboBox(presmedicamentos);
+            final JComboBox comboTipo = new JComboBox(BootStrap.tiposmedicamentos);
+            final JComboBox comboPres = new JComboBox(BootStrap.presmedicamentos);
 
             final JFrame ventana = new JFrame();
             ventana.getContentPane().setLayout(new GridLayout(10, 2));
@@ -336,7 +327,7 @@ public class Medicamento extends JFrame implements ActionListener {
                 public void actionPerformed(ActionEvent e) {
 
           //for (tamCM=0;tamCM<NombreMed.length;tamCM++){  
-                    if (NombreMed[tamCM] == null) {
+                    if (BootStrap.NombreMed[tamCM] == null) {
 
                         String NombreMedicamento = Nombre.getText();
                         String CompuestoMedicamento = CompuestoMed.getText();
@@ -353,19 +344,18 @@ public class Medicamento extends JFrame implements ActionListener {
                         String TipoMedicamento = (String) comboTipo.getSelectedItem();
                         String PresMedicamento = (String) comboPres.getSelectedItem();
 
-                        NombreMed[tamCM] = NombreMedicamento;
-                        Compuesto[tamCM] = CompuestoMedicamento;
-                        Cantidad[tamCM] = (int) CantidadMedicamentoQ;
-                        PrecioUnit[tamCM] = PrecioMedicamentoQ;
-                        DiaVenc[tamCM] = (int) DiaVencMedicamentoQ;
-                        MesVenc[tamCM] = (int) MesVencMedicamentoQ;
-                        AnoVenc[tamCM] = (int) AnoVencMedicamentoQ;
-                        TipoMed[tamCM] = TipoMedicamento;
-                        PresMed[tamCM] = PresMedicamento;
-
+                        BootStrap.NombreMed[tamCM] = NombreMedicamento;
+                        BootStrap.Compuesto[tamCM] = CompuestoMedicamento;
+                        BootStrap.Cantidad[tamCM] = (int) CantidadMedicamentoQ;
+                        BootStrap.PrecioUnit[tamCM] = PrecioMedicamentoQ;
+                        BootStrap.DiaVenc[tamCM] = (int) DiaVencMedicamentoQ;
+                        BootStrap.MesVenc[tamCM] = (int) MesVencMedicamentoQ;
+                        BootStrap.AnoVenc[tamCM] = (int) AnoVencMedicamentoQ;
+                        BootStrap.TipoMed[tamCM] = TipoMedicamento;
+                        BootStrap.PresMed[tamCM] = PresMedicamento;
                     }
 
-                    System.out.println(NombreMed[tamCM] + DiaVenc[tamCM] + TipoMed[tamCM] + PresMed[tamCM]); // FLAG
+                    System.out.println(BootStrap.NombreMed[tamCM] + BootStrap.DiaVenc[tamCM] + BootStrap.TipoMed[tamCM] + BootStrap.PresMed[tamCM]); // FLAG
 
                     int opcion;
                     opcion = JOptionPane.showConfirmDialog(null, "Desea ingresar otro Medicamento?", "Carga de Medicamentos", JOptionPane.YES_NO_OPTION);
@@ -393,7 +383,7 @@ public class Medicamento extends JFrame implements ActionListener {
 
             final JList ActualizaNom;
 
-            ActualizaNom = new JList(NombreMed);
+            ActualizaNom = new JList(BootStrap.NombreMed);
 
             ActualizaNom.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -413,15 +403,15 @@ public class Medicamento extends JFrame implements ActionListener {
                     final int indice = ActualizaNom.getSelectedIndex();
 
                 //extraigo los valores a editar de los arrays
-                    NM = NombreMed[indice];
-                    CM = Compuesto[indice];
-                    QM = Cantidad[indice];
-                    PM = PrecioUnit[indice];
-                    DVM = DiaVenc[indice];
-                    MVM = MesVenc[indice];
-                    AVM = AnoVenc[indice];
-                    TM = TipoMed[indice];
-                    FM = PresMed[indice];
+                    NM = BootStrap.NombreMed[indice];
+                    CM = BootStrap.Compuesto[indice];
+                    QM = BootStrap.Cantidad[indice];
+                    PM = BootStrap.PrecioUnit[indice];
+                    DVM = BootStrap.DiaVenc[indice];
+                    MVM = BootStrap.MesVenc[indice];
+                    AVM = BootStrap.AnoVenc[indice];
+                    TM = BootStrap.TipoMed[indice];
+                    FM = BootStrap.PresMed[indice];
 
                 // convierto los valores numéricos a cadenas para poder llevarlos al formulario
                     String QMString = Integer.toString(QM);
@@ -440,8 +430,8 @@ public class Medicamento extends JFrame implements ActionListener {
                     JTextField VenceAno = new JTextField(AVMString, 2);
 
                     //construyo los combos
-                    final JComboBox comboTipo = new JComboBox(tiposmedicamentos);
-                    final JComboBox comboPres = new JComboBox(presmedicamentos);
+                    final JComboBox comboTipo = new JComboBox(BootStrap.tiposmedicamentos);
+                    final JComboBox comboPres = new JComboBox(BootStrap.presmedicamentos);
 
                 // muestro el formulario
                     final JFrame ventana = new JFrame();
@@ -475,7 +465,7 @@ public class Medicamento extends JFrame implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
 
-                            if (NombreMed[indice] != null) {
+                            if (BootStrap.NombreMed[indice] != null) {
 
                                 String NombreMedicamento = Nombre.getText();
                                 String CompuestoMedicamento = CompuestoMed.getText();
@@ -492,19 +482,19 @@ public class Medicamento extends JFrame implements ActionListener {
                                 String TipoMedicamento = (String) comboTipo.getSelectedItem();
                                 String PresMedicamento = (String) comboPres.getSelectedItem();
 
-                                NombreMed[indice] = NombreMedicamento;
-                                Compuesto[indice] = CompuestoMedicamento;
-                                Cantidad[indice] = (int) CantidadMedicamentoQ;
-                                PrecioUnit[indice] = PrecioMedicamentoQ;
-                                DiaVenc[indice] = (int) DiaVencMedicamentoQ;
-                                MesVenc[indice] = (int) MesVencMedicamentoQ;
-                                AnoVenc[indice] = (int) AnoVencMedicamentoQ;
-                                TipoMed[indice] = TipoMedicamento;
-                                PresMed[indice] = PresMedicamento;
+                                BootStrap.NombreMed[indice] = NombreMedicamento;
+                                BootStrap.Compuesto[indice] = CompuestoMedicamento;
+                                BootStrap.Cantidad[indice] = (int) CantidadMedicamentoQ;
+                                BootStrap.PrecioUnit[indice] = PrecioMedicamentoQ;
+                                BootStrap.DiaVenc[indice] = (int) DiaVencMedicamentoQ;
+                                BootStrap.MesVenc[indice] = (int) MesVencMedicamentoQ;
+                                BootStrap.AnoVenc[indice] = (int) AnoVencMedicamentoQ;
+                                BootStrap.TipoMed[indice] = TipoMedicamento;
+                                BootStrap.PresMed[indice] = PresMedicamento;
 
                             }
 
-                            System.out.println(NombreMed[indice] + DiaVenc[indice] + TipoMed[indice] + PresMed[indice]); // FLAG
+                            System.out.println(BootStrap.NombreMed[indice] + BootStrap.DiaVenc[indice] + BootStrap.TipoMed[indice] + BootStrap.PresMed[indice]); // FLAG
 
                             int opcion;
                             opcion = JOptionPane.showConfirmDialog(null, "Medicamento Actualizado", "Actualizar Medicamentos", JOptionPane.CLOSED_OPTION);
@@ -525,7 +515,7 @@ public class Medicamento extends JFrame implements ActionListener {
         if (e.getSource() == mi9) {
 
             final JList EliminaMed;
-            EliminaMed = new JList(NombreMed);
+            EliminaMed = new JList(BootStrap.NombreMed);
 
             EliminaMed.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -544,15 +534,15 @@ public class Medicamento extends JFrame implements ActionListener {
 
                     int indice = EliminaMed.getSelectedIndex();
 
-                    NombreMed[indice] = null;
-                    Compuesto[indice] = null;
-                    Cantidad[indice] = 0;
-                    PrecioUnit[indice] = 0;
-                    DiaVenc[indice] = 0;
-                    MesVenc[indice] = 0;
-                    AnoVenc[indice] = 0;
-                    TipoMed[indice] = null;
-                    PresMed[indice] = null;
+                    BootStrap.NombreMed[indice] = null;
+                    BootStrap.Compuesto[indice] = null;
+                    BootStrap.Cantidad[indice] = 0;
+                    BootStrap.PrecioUnit[indice] = 0;
+                    BootStrap.DiaVenc[indice] = 0;
+                    BootStrap.MesVenc[indice] = 0;
+                    BootStrap.AnoVenc[indice] = 0;
+                    BootStrap.TipoMed[indice] = null;
+                    BootStrap.PresMed[indice] = null;
 
                     JOptionPane.showMessageDialog(null, "Ha eliminado el medicamento seleccionado", "Eliminar Medicamento", JOptionPane.INFORMATION_MESSAGE);
 
@@ -571,20 +561,20 @@ public class Medicamento extends JFrame implements ActionListener {
             int i, QM2, DVM2, MVM2, AVM2;
             double PM2;
             String MuestraCantidad[], MuestraPrecio[], MuestraDia[], MuestraMes[], MuestraAno[];
-            MuestraCantidad = new String[NombreMed.length];
-            MuestraPrecio = new String[NombreMed.length];
-            MuestraDia = new String[NombreMed.length];
-            MuestraMes = new String[NombreMed.length];
-            MuestraAno = new String[NombreMed.length];
+            MuestraCantidad = new String[BootStrap.NombreMed.length];
+            MuestraPrecio = new String[BootStrap.NombreMed.length];
+            MuestraDia = new String[BootStrap.NombreMed.length];
+            MuestraMes = new String[BootStrap.NombreMed.length];
+            MuestraAno = new String[BootStrap.NombreMed.length];
 
-            for (i = 0; i < NombreMed.length; i++) {
+            for (i = 0; i < BootStrap.NombreMed.length; i++) {
 
         // tomo los datos de los arrays     
-                QM2 = Cantidad[i];
-                PM2 = PrecioUnit[i];
-                DVM2 = DiaVenc[i];
-                MVM2 = MesVenc[i];
-                AVM2 = AnoVenc[i];
+                QM2 = BootStrap.Cantidad[i];
+                PM2 = BootStrap.PrecioUnit[i];
+                DVM2 = BootStrap.DiaVenc[i];
+                MVM2 = BootStrap.MesVenc[i];
+                AVM2 = BootStrap.AnoVenc[i];
 
         // convierto los datos a String 
                 String QM2String = Integer.toString(QM2);
@@ -603,15 +593,15 @@ public class Medicamento extends JFrame implements ActionListener {
             }
 
             JList Nombre, CompMed, TMed, PMed, QMed, PrMed, DMed, MMed, AMed;
-            Nombre = new JList(NombreMed);
-            CompMed = new JList(Compuesto);
+            Nombre = new JList(BootStrap.NombreMed);
+            CompMed = new JList(BootStrap.Compuesto);
             QMed = new JList(MuestraCantidad);
             PrMed = new JList(MuestraPrecio);
             DMed = new JList(MuestraDia);
             MMed = new JList(MuestraMes);
             AMed = new JList(MuestraAno);
-            TMed = new JList(TipoMed);
-            PMed = new JList(PresMed);
+            TMed = new JList(BootStrap.TipoMed);
+            PMed = new JList(BootStrap.PresMed);
 
             JFrame ventana = new JFrame();
             ventana.getContentPane().setLayout(new FlowLayout());
