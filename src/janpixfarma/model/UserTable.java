@@ -81,6 +81,15 @@ public final class UserTable {
         return users;
     }
 
+    public User getUserByUsername(String username) {
+        for (int i = 0; i < size(); i++) {
+            if (getUser(i).getUsername().equals(username)) {
+                return getUser(i);
+            }
+        }
+        return null;
+    }
+    
     public boolean findByUsername(String username) {
         for (int i = 0; i < size(); i++) {
             if (getUser(i).getUsername().equals(username)) {

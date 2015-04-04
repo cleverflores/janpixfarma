@@ -85,12 +85,6 @@
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="CerrarSesion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cambiar de Usuario"/>
-                <Property name="actionCommand" type="java.lang.String" value="CERRAR_SESION"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="SalirSistema">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir del Sistema"/>

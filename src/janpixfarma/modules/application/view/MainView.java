@@ -39,9 +39,9 @@ public class MainView extends javax.swing.JFrame {
         ReporteCompras.addActionListener(c);
         ReporteVentaUsuario.addActionListener(c);
         ReporteRankingVentas.addActionListener(c);
-        CerrarSesion.addActionListener(c);
         AdministrarMedicamentos.addActionListener(c);
         AdministrarClientes.addActionListener(c);
+        SalirSistema.addActionListener(c);
     }
 
     /**
@@ -68,7 +68,6 @@ public class MainView extends javax.swing.JFrame {
         ReporteVentaUsuario = new javax.swing.JMenuItem();
         ReporteRankingVentas = new javax.swing.JMenuItem();
         Salir = new javax.swing.JMenu();
-        CerrarSesion = new javax.swing.JMenuItem();
         SalirSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,10 +134,6 @@ public class MainView extends javax.swing.JFrame {
 
         Salir.setText("Salir");
 
-        CerrarSesion.setText("Cambiar de Usuario");
-        CerrarSesion.setActionCommand("CERRAR_SESION");
-        Salir.add(CerrarSesion);
-
         SalirSistema.setText("Salir del Sistema");
         SalirSistema.setActionCommand("SALIR");
         Salir.add(SalirSistema);
@@ -199,7 +194,6 @@ public class MainView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AdministrarClientes;
     private javax.swing.JMenuItem AdministrarMedicamentos;
-    private javax.swing.JMenuItem CerrarSesion;
     private javax.swing.JMenu Clientes;
     private javax.swing.JMenu Medicamentos;
     private javax.swing.JMenuBar Menu;
