@@ -37,9 +37,25 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="AdministrarClientes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Administrar Clientes y Ventas"/>
+                <Property name="text" type="java.lang.String" value="Administrar Clientes"/>
                 <Property name="actionCommand" type="java.lang.String" value="ADMIN_CLIENTES"/>
               </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Venta"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="RegistrarVenta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Venta"/>
+                <Property name="actionCommand" type="java.lang.String" value="REGISTRAR_VENTA"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarVentaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -85,6 +101,12 @@
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="CambiarUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cambiar de Usuario"/>
+                <Property name="actionCommand" type="java.lang.String" value="CAMBIAR_USUARIO"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="SalirSistema">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir del Sistema"/>

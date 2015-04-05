@@ -6,14 +6,13 @@
 package janpixfarma;
 
 import javax.swing.table.DefaultTableModel;
-
-
+import janpixfarma.modules.application.BootStrap;
 
 /**
  *
  * @author Cesar R
  */
-public class ReporteCliente extends javax.swing.JFrame {
+public class ReporteCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ReporteCliente
@@ -25,10 +24,7 @@ public class ReporteCliente extends javax.swing.JFrame {
    static  String unombres = "Cesar"; //Guarda el nombre del usuario
    static  String uapellidos = "Rubinos";//Guarda en apellido del usuario
    static  String udni = "40067345"; //Guarda el DNI del usuario
-   
-   
-   public static String clientes[][] = new String[20][4];  //Matriz donde guarda los datos del cliente                                           
-   public static String ventas[][] = new String[20][7]; //Matriz donde se gurdan los datos de las ventas  
+
 // public static String medicamentos[][] = new String[20][7]; //Matriz donde se guardan los datos de medicamento                                            
    DefaultTableModel modeloReporteCliente; //Se crea una tabla del modelo 
     
@@ -36,9 +32,6 @@ public class ReporteCliente extends javax.swing.JFrame {
     public ReporteCliente() {                                
         initComponents();
 
-        setLocationRelativeTo(null);//Coloca la ventana en el centro de la pantalla
-        setResizable(false);//Desabilita la opcion "ampliar ventana" 
-        
         modeloReporteCliente = new DefaultTableModel();//Se instancia nuestro modelo de tabla
         modeloReporteCliente.addColumn("Medicamento");//Se crea la columna "Medicamento" en la tabla
         modeloReporteCliente.addColumn("Cantidad");//Se crea la columna "Cantidad" en la tabla
@@ -78,7 +71,8 @@ public class ReporteCliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reporte de Cliente");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -253,61 +247,6 @@ public class ReporteCliente extends javax.swing.JFrame {
     private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
         // TODO add your handling code here:
        
-        /*
-     * Matriz para almacenar Ventas. Esta matriz es llenada en la operacion de venta y tiene la siguiente estructura:
-     * 0: DNI 
-     * 1: Medicamento 
-     * 2: Cantidad 
-     * 3: Fecha 
-     * 4: Usuario 
-     * 5: Monto Efectivo 
-     * 6: Monto Bono
-     */            
-        
-      ventas[1][0]="123456";
-      ventas[1][1]="Voltaren";
-      ventas[1][2]="10";
-      ventas[1][3]="01/02/15";
-      ventas[1][4]="Superusuario";
-      ventas[1][5]="20";
-      ventas[1][6]="5";
-        
-      ventas[3][0]="123456";
-      ventas[3][1]="Apronax";
-      ventas[3][2]="10";
-      ventas[3][3]="01/02/15";
-      ventas[3][4]="Superusuario";
-      ventas[3][5]="10";
-      ventas[3][6]="3";   
-      
-      ventas[5][0]="654321";
-      ventas[5][1]="Humed";
-      ventas[5][2]="1";
-      ventas[5][3]="01/02/15";
-      ventas[5][4]="Superusuario";
-      ventas[5][5]="50";
-      ventas[5][6]="3";    
-        
-            
-        
-    /*
-     * Matriz para registrar datos de cliente. 
-     * 0: DNI. 
-     * 1: Apellidos. 
-     * 2: Nombres. 
-     * 3: Puntos bonus.
-     */          
-      clientes[1][0]="123456";
-      clientes[1][1]="Juan ";
-      clientes[1][2]="Perez";
-      clientes[1][3]="10000";  
-      
-      clientes[2][0]="654321";
-      clientes[2][1]="Ernerto";
-      clientes[2][2]="Alcantara";
-      clientes[2][3]="200"; 
-      
-                                                                
        
       String dni = txtDNI.getText();//Guarda el DNI que se digita en el cuadro de texto
       String pbono = null;//Guarda los puntos bonos   
@@ -315,18 +254,18 @@ public class ReporteCliente extends javax.swing.JFrame {
       double montoBonos;//Guarda el monto el equivalente de los bonos en efectivo
         
     /*
-    Se realiza la busqueda en la matriz de ventas. Se busca coincidencias del "dni". Cuando encuentra coincidencias
-    por cada cliente que coincida en su dni busca luego en la matriz de clientes. Busca y muestra en pantalla
+    Se realiza la busqueda en la matriz de BootStrap.ventas. Se busca coincidencias del "dni". Cuando encuentra coincidencias
+    por cada cliente que coincida en su dni busca luego en la matriz de BootStrap.Clientes. Busca y muestra en pantalla
       - Nombre y apellido del cliente
       - Bonos del cliente
     */
-    for (int i = 0; i < ventas.length; i++) {
-        if (ventas[i][0] != null && ventas[i][0].equalsIgnoreCase(dni)) {
-            for (int j = 0; j < clientes.length; j++) {
-                if (clientes[j][0] != null && clientes[j][0].equalsIgnoreCase(dni)) {
-                   lblCliente.setText(clientes[j][1]+ " " +clientes[j][2]); //Muestra el nombre y apellido del cliente                       
-                   lblBonos.setText(clientes[j][3]);//Muestra el bono del cliente    
-                   pbono=clientes[j][3];//Guarda los puntos bonos
+    for (int i = 0; i < BootStrap.ventas.length; i++) {
+        if (BootStrap.ventas[i][0] != null && BootStrap.ventas[i][0].equalsIgnoreCase(dni)) {
+            for (int j = 0; j < BootStrap.Clientes.length; j++) {
+                if (BootStrap.Clientes[j][0] != null && BootStrap.Clientes[j][0].equalsIgnoreCase(dni)) {
+                   lblCliente.setText(BootStrap.Clientes[j][3]+ " " +BootStrap.Clientes[j][2]); //Muestra el nombre y apellido del cliente                       
+                   lblBonos.setText(BootStrap.Clientes[j][4]);//Muestra el bono del cliente    
+                   pbono=BootStrap.Clientes[j][4];//Guarda los puntos bonos
                     break;
                 }
             }
@@ -348,12 +287,12 @@ public class ReporteCliente extends javax.swing.JFrame {
       - Fecha de la venta
       - Monto efectivo                   
     */           
-        for (int i = 0; i < ventas.length; i++) {
-            if (ventas[i][0] != null && ventas[i][0].equalsIgnoreCase(dni)) {
-                datosCliente[0] = ventas[i][1];//Medicamento vendido
-                datosCliente[1] = ventas[i][2];//Cantidad vendida                
-                datosCliente[3] = ventas[i][3];//Fecha de la venta
-                datosCliente[2] = ventas[i][5];//Monto efectivo
+        for (int i = 0; i < BootStrap.ventas.length; i++) {
+            if (BootStrap.ventas[i][0] != null && BootStrap.ventas[i][0].equalsIgnoreCase(dni)) {
+                datosCliente[0] = BootStrap.ventas[i][1];//Medicamento vendido
+                datosCliente[1] = BootStrap.ventas[i][2];//Cantidad vendida                
+                datosCliente[3] = BootStrap.ventas[i][3];//Fecha de la venta
+                datosCliente[2] = BootStrap.ventas[i][5];//Monto efectivo
                 modeloReporteCliente.addRow(datosCliente); //Muestra la matriz de datos en la lista                                              
                 total += Double.parseDouble(datosCliente[2]);//Calculoo del total vendido
                 lblMontoTotal.setText(String.valueOf(total));//Se muestra en pantalla el total vendido

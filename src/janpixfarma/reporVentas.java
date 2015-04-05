@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nickyop
  */
-public class reporVentas extends javax.swing.JFrame {
+public class reporVentas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form reporVentas
@@ -49,7 +49,8 @@ public class reporVentas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReporte = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Vendedor:");
 

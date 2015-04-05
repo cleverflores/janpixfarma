@@ -8,18 +8,18 @@ package janpixfarma;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import janpixfarma.modules.application.BootStrap;
 
 /**
  *
  * @author Administrador
  */
-public class NewJDialog extends javax.swing.JDialog {
+public class RegistroVentas extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form NewJDialog
+     * Creates new RegistroVentas
      */
-    public NewJDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public RegistroVentas() {
         initComponents();
     }
 
@@ -126,24 +126,24 @@ public class NewJDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addContainerGap(31, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton1)))
+                                .addContainerGap(39, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(72, 72, 72)
+                                .addGap(64, 64, 64)
                                 .addComponent(txtBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(113, 113, 113)
@@ -187,22 +187,21 @@ public class NewJDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String cli = JOptionPane.showInputDialog(null, "Ingrese el cliente :");
-        int indice =Cliente.BuscaDNI(cli);
-        if (indice!=-1){
-            txtCliente.setText(Cliente.Clientes[indice][1] + " "+Cliente.Clientes[indice][2]);
-            txtBonus.setText(Cliente.Clientes[indice][3]);
-        }else{
+        String cli = JOptionPane.showInputDialog(null, "Ingrese el cliente por su DNI:");
+        int indice = Cliente.BuscaDNI(cli);
+        if (indice != -1) {
+            txtCliente.setText(BootStrap.Clientes[indice][1] + " " + BootStrap.Clientes[indice][3] +" "+BootStrap.Clientes[indice][2]);
+            txtBonus.setText(BootStrap.Clientes[indice][4]);
+        } else {
             JOptionPane.showMessageDialog(null, "No se encotraron resultados");
         }
-        
-        //JOptionPane.showMessageDialog(null, "" + Cliente.Clientes.length);
+
+        //JOptionPane.showMessageDialog(null, "" + BootStrap.Clientes.length);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        JFrame padre = (JFrame) this.getParent();
-        boleta bol = new boleta(padre, true);
-        bol.mostrar_boleta(padre, true, txtCliente, txtMedicamento, txtCant, txtPu);
+        boleta bol = new boleta();
+        bol.mostrar_boleta(txtCliente, txtMedicamento, txtCant, txtPu);
         bol.setVisible(true);
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
@@ -253,27 +252,21 @@ public class NewJDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                NewJDialog dialog = new NewJDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new RegistroVentas().setVisible(true);
             }
         });
     }

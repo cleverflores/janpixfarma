@@ -149,7 +149,7 @@ public class UsuarioAdministrarController implements ActionListener {
         }
         for (int i = 0; i < app.getUsers().size(); i++) {
             String[] row = new String[7];
-            row[0] = "" + i + "";
+            row[0] = "" + (i+1) + "";
             row[1] = app.getUsers().getUser(i).getDni();
             row[2] = app.getUsers().getUser(i).getUsername();
             row[3] = app.getUsers().getUser(i).getPassword();

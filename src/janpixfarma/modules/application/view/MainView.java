@@ -41,6 +41,8 @@ public class MainView extends javax.swing.JFrame {
         ReporteRankingVentas.addActionListener(c);
         AdministrarMedicamentos.addActionListener(c);
         AdministrarClientes.addActionListener(c);
+        RegistrarVenta.addActionListener(c);
+        CambiarUsuario.addActionListener(c);
         SalirSistema.addActionListener(c);
     }
 
@@ -61,6 +63,8 @@ public class MainView extends javax.swing.JFrame {
         AdministrarMedicamentos = new javax.swing.JMenuItem();
         Clientes = new javax.swing.JMenu();
         AdministrarClientes = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        RegistrarVenta = new javax.swing.JMenuItem();
         Reportes = new javax.swing.JMenu();
         ReporteCaja = new javax.swing.JMenuItem();
         ReporteClientes = new javax.swing.JMenuItem();
@@ -68,6 +72,7 @@ public class MainView extends javax.swing.JFrame {
         ReporteVentaUsuario = new javax.swing.JMenuItem();
         ReporteRankingVentas = new javax.swing.JMenuItem();
         Salir = new javax.swing.JMenu();
+        CambiarUsuario = new javax.swing.JMenuItem();
         SalirSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,11 +107,24 @@ public class MainView extends javax.swing.JFrame {
 
         Clientes.setText("Clientes");
 
-        AdministrarClientes.setText("Administrar Clientes y Ventas");
+        AdministrarClientes.setText("Administrar Clientes");
         AdministrarClientes.setActionCommand("ADMIN_CLIENTES");
         Clientes.add(AdministrarClientes);
 
         Menu.add(Clientes);
+
+        jMenu1.setText("Venta");
+
+        RegistrarVenta.setText("Registrar Venta");
+        RegistrarVenta.setActionCommand("REGISTRAR_VENTA");
+        RegistrarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarVentaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(RegistrarVenta);
+
+        Menu.add(jMenu1);
 
         Reportes.setText("Reportes");
 
@@ -134,6 +152,10 @@ public class MainView extends javax.swing.JFrame {
 
         Salir.setText("Salir");
 
+        CambiarUsuario.setText("Cambiar de Usuario");
+        CambiarUsuario.setActionCommand("CAMBIAR_USUARIO");
+        Salir.add(CambiarUsuario);
+
         SalirSistema.setText("Salir del Sistema");
         SalirSistema.setActionCommand("SALIR");
         Salir.add(SalirSistema);
@@ -155,6 +177,10 @@ public class MainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarVentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,10 +220,12 @@ public class MainView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AdministrarClientes;
     private javax.swing.JMenuItem AdministrarMedicamentos;
+    private javax.swing.JMenuItem CambiarUsuario;
     private javax.swing.JMenu Clientes;
     private javax.swing.JMenu Medicamentos;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem RegistrarUsuario;
+    private javax.swing.JMenuItem RegistrarVenta;
     private javax.swing.JMenuItem ReporteCaja;
     private javax.swing.JMenuItem ReporteClientes;
     private javax.swing.JMenuItem ReporteCompras;
@@ -207,6 +235,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenu Salir;
     private javax.swing.JMenuItem SalirSistema;
     private javax.swing.JMenu Usuarios;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JDesktopPane mainPane;
     // End of variables declaration//GEN-END:variables
 }

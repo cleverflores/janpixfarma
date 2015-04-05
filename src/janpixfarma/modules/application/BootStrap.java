@@ -42,6 +42,12 @@ public class BootStrap {
     public static String TipoMed[] = new String[20];
     public static String PresMed[] = new String[20];
 
+    // Matriz para clientes
+    public static String Clientes[][] = new String[100][5];
+
+    // Matriz para las ventas
+    public static String ventas[][] = new String[20][7]; //Matriz donde se gurdan los datos de las ventas  
+
     /*
      * Constructor privado para control de una sola instancia
      */
@@ -116,7 +122,7 @@ public class BootStrap {
             BootStrap.TipoMed[0] = "analgésico";
             BootStrap.PresMed[0] = "pastilla";
 
-            BootStrap.NombreMed[1] = "panadol";
+            BootStrap.NombreMed[1] = "apronax";
             BootStrap.Compuesto[1] = "paracetamol 500mg";
             BootStrap.Cantidad[1] = 500;
             BootStrap.PrecioUnit[1] = 1.0;
@@ -126,6 +132,58 @@ public class BootStrap {
             BootStrap.TipoMed[1] = "analgésico";
             BootStrap.PresMed[1] = "pastilla";
 
+            // Carga de Clientes
+            BootStrap.Clientes[0][0] = "1";
+            BootStrap.Clientes[0][1] = "100003937";
+            BootStrap.Clientes[0][2] = "Pérez";
+            BootStrap.Clientes[0][3] = "Pepe";
+            BootStrap.Clientes[0][4] = "15";
+
+            BootStrap.Clientes[1][0] = "2";
+            BootStrap.Clientes[1][1] = "200340066";
+            BootStrap.Clientes[1][2] = "Gonzáles";
+            BootStrap.Clientes[1][3] = "Manuel";
+            BootStrap.Clientes[1][4] = "0";
+
+            BootStrap.Clientes[2][0] = "3";
+            BootStrap.Clientes[2][1] = "000768888";
+            BootStrap.Clientes[2][2] = "García";
+            BootStrap.Clientes[2][3] = "Rosa";
+            BootStrap.Clientes[2][4] = "10";
+
+            // Carga de ventas
+            /* Matriz para almacenar Ventas. Esta matriz es llenada en la operacion de venta y tiene la siguiente estructura:
+             * 0: DNI del Cliente
+             * 1: Medicamento 
+             * 2: Cantidad 
+             * 3: Fecha 
+             * 4: Usuario 
+             * 5: Monto Efectivo 
+             * 6: Monto Bono
+             */
+            ventas[0][0] = "100003937";
+            ventas[0][1] = "panadol";
+            ventas[0][2] = "10";
+            ventas[0][3] = "01/03/2015";
+            ventas[0][4] = "SUPERUSUARIO";
+            ventas[0][5] = "10.0";
+            ventas[0][6] = "0.5";
+
+            ventas[1][0] = "100003937";
+            ventas[1][1] = "apronax";
+            ventas[1][2] = "20";
+            ventas[1][3] = "01/03/2015";
+            ventas[1][4] = "SUPERUSUARIO";
+            ventas[1][5] = "20";
+            ventas[1][6] = "3";
+
+            ventas[2][0] = "000768888";
+            ventas[2][1] = "apronax";
+            ventas[2][2] = "1";
+            ventas[2][3] = "01/03/2015";
+            ventas[2][4] = "SUPERUSUARIO";
+            ventas[2][5] = "1";
+            ventas[2][6] = "0";
         }
         return app;
     }

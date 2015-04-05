@@ -17,12 +17,11 @@ public class boleta extends javax.swing.JDialog {
     /**
      * Creates new form boleta
      */
-    public boleta(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public boleta() {
         initComponents();
     }
 
-    public void mostrar_boleta(java.awt.Frame parent, boolean modal, JTextField cliente, JTextField medicamento, JTextField cant, JTextField pu) {
+    public void mostrar_boleta(JTextField cliente, JTextField medicamento, JTextField cant, JTextField pu) {
         this.lbcliente.setText(cliente.getText());
         this.lbmedic.setText(medicamento.getText());
         this.lbcant.setText(cant.getText());
@@ -209,7 +208,7 @@ public class boleta extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                boleta dialog = new boleta(new javax.swing.JFrame(), true);
+                boleta dialog = new boleta();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

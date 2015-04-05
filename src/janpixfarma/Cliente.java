@@ -7,17 +7,17 @@ package janpixfarma;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import janpixfarma.modules.application.BootStrap;
 
 /**
  *
  * @author Administrador
  */
-public class Cliente extends javax.swing.JFrame {
+public class Cliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Cliente
      */
-    public static String Clientes[][] = new String[100][7];
     public static int indexCliente = 0;
     DefaultTableModel model = null;
     public int itenSelec = -1;
@@ -28,6 +28,14 @@ public class Cliente extends javax.swing.JFrame {
         estadoBontones(true);
         estadoCajas(false);
         model = (DefaultTableModel) tbDetalle.getModel();
+        if (BootStrap.Clientes.length >= 0) {
+            for (int i = 0; i < BootStrap.Clientes.length; i++) {
+                if (BootStrap.Clientes[i][0] != null) {
+                    llenarGria(BootStrap.Clientes[i][0], BootStrap.Clientes[i][1], BootStrap.Clientes[i][2], BootStrap.Clientes[i][3], BootStrap.Clientes[i][4]);
+                    indexCliente++;
+                }
+            }
+        }
     }
 
     /**
@@ -56,7 +64,6 @@ public class Cliente extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbDetalle = new javax.swing.JTable();
         btEditar = new javax.swing.JButton();
-        btVentas = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,7 +78,8 @@ public class Cliente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administración de Clientes ");
 
         jLabel1.setText("DNI");
 
@@ -139,13 +147,6 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
-        btVentas.setText("REGISTRA VENTA");
-        btVentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVentasActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,13 +185,11 @@ public class Cliente extends javax.swing.JFrame {
                                         .addComponent(txtApellidos)
                                         .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(btVentas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -206,16 +205,13 @@ public class Cliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(43, 43, 43)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btNuevo)
-                            .addComponent(btGuardar)
-                            .addComponent(btEliminar)
-                            .addComponent(btCancelar))))
+                    .addComponent(btNuevo)
+                    .addComponent(btGuardar)
+                    .addComponent(btEliminar)
+                    .addComponent(btCancelar)
+                    .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -253,20 +249,20 @@ public class Cliente extends javax.swing.JFrame {
 
     private boolean BuscaCodigo() {
         boolean ExisteCodigo = false;
-        for (int i = 0; i < Clientes.length; i++) {
-            if (txtDNI.getText().toUpperCase() != null && txtDNI.getText().toUpperCase().equals(Clientes[i][1])) {
+        for (int i = 0; i < BootStrap.Clientes.length; i++) {
+            if (txtDNI.getText().toUpperCase() != null && txtDNI.getText().toUpperCase().equals(BootStrap.Clientes[i][1])) {
                 ExisteCodigo = true;
                 break;
             }
         }
         return ExisteCodigo;
     }
-    
+
     public static int BuscaDNI(String dni) {
         int indice = -1;
-        for (int i = 0; i < Clientes.length; i++) {
-            if (dni.toUpperCase() != null && dni.toUpperCase().equals(Clientes[i][1])) {
-                indice=i;
+        for (int i = 0; i < BootStrap.Clientes.length; i++) {
+            if (dni.toUpperCase() != null && dni.toUpperCase().equals(BootStrap.Clientes[i][1])) {
+                indice = i;
                 break;
             }
         }
@@ -285,12 +281,12 @@ public class Cliente extends javax.swing.JFrame {
             if (BuscaCodigo()) {
                 JOptionPane.showMessageDialog(null, "EL DNI YA EXISTE");
             } else {
-                Clientes[indexCliente][0] = "" + indexCliente;
-                Clientes[indexCliente][1] = txtDNI.getText().toUpperCase();
-                Clientes[indexCliente][2] = txtApellidos.getText().toUpperCase();
-                Clientes[indexCliente][3] = txtNombres.getText().toUpperCase();
-                Clientes[indexCliente][4] = txtBonus.getText().toUpperCase();
-                llenarGria(Clientes[indexCliente][0], Clientes[indexCliente][1], Clientes[indexCliente][2], Clientes[indexCliente][3], Clientes[indexCliente][4]);
+                BootStrap.Clientes[indexCliente][0] = "" + (indexCliente+1);
+                BootStrap.Clientes[indexCliente][1] = txtDNI.getText().toUpperCase();
+                BootStrap.Clientes[indexCliente][2] = txtApellidos.getText().toUpperCase();
+                BootStrap.Clientes[indexCliente][3] = txtNombres.getText().toUpperCase();
+                BootStrap.Clientes[indexCliente][4] = txtBonus.getText().toUpperCase();
+                llenarGria(BootStrap.Clientes[indexCliente][0], BootStrap.Clientes[indexCliente][1], BootStrap.Clientes[indexCliente][2], BootStrap.Clientes[indexCliente][3], BootStrap.Clientes[indexCliente][4]);
                 indexCliente++;
                 estadoBontones(true);
                 estadoCajas(false);
@@ -298,15 +294,15 @@ public class Cliente extends javax.swing.JFrame {
             }
         } else {
 
-            Clientes[itenSelec][1] = txtDNI.getText().toUpperCase();
-            Clientes[itenSelec][2] = txtApellidos.getText().toUpperCase();
-            Clientes[itenSelec][3] = txtNombres.getText().toUpperCase();
-            Clientes[itenSelec][4] = txtBonus.getText().toUpperCase();
+            BootStrap.Clientes[itenSelec][1] = txtDNI.getText().toUpperCase();
+            BootStrap.Clientes[itenSelec][2] = txtApellidos.getText().toUpperCase();
+            BootStrap.Clientes[itenSelec][3] = txtNombres.getText().toUpperCase();
+            BootStrap.Clientes[itenSelec][4] = txtBonus.getText().toUpperCase();
 
-            model.setValueAt(Clientes[itenSelec][1], itenSelec, 1);
-            model.setValueAt(Clientes[itenSelec][2], itenSelec, 2);
-            model.setValueAt(Clientes[itenSelec][3], itenSelec, 3);
-            model.setValueAt(Clientes[itenSelec][4], itenSelec, 4);
+            model.setValueAt(BootStrap.Clientes[itenSelec][1], itenSelec, 1);
+            model.setValueAt(BootStrap.Clientes[itenSelec][2], itenSelec, 2);
+            model.setValueAt(BootStrap.Clientes[itenSelec][3], itenSelec, 3);
+            model.setValueAt(BootStrap.Clientes[itenSelec][4], itenSelec, 4);
             estadoBontones(true);
             estadoCajas(false);
             limpiar();
@@ -316,10 +312,10 @@ public class Cliente extends javax.swing.JFrame {
 
     private void tbDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDetalleMouseClicked
         itenSelec = tbDetalle.getSelectedRow();
-        txtDNI.setText(Clientes[itenSelec][1]);
-        txtApellidos.setText(Clientes[itenSelec][2]);
-        txtNombres.setText(Clientes[itenSelec][3]);
-        txtBonus.setText(Clientes[itenSelec][4]);
+        txtDNI.setText(BootStrap.Clientes[itenSelec][1]);
+        txtApellidos.setText(BootStrap.Clientes[itenSelec][2]);
+        txtNombres.setText(BootStrap.Clientes[itenSelec][3]);
+        txtBonus.setText(BootStrap.Clientes[itenSelec][4]);
     }//GEN-LAST:event_tbDetalleMouseClicked
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
@@ -341,11 +337,6 @@ public class Cliente extends javax.swing.JFrame {
             bandera = false;
         }
     }//GEN-LAST:event_btEditarActionPerformed
-
-    private void btVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVentasActionPerformed
-        NewJDialog x = new NewJDialog(this, true);
-        x.setVisible(true);
-    }//GEN-LAST:event_btVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,7 +380,6 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btGuardar;
     private javax.swing.JButton btNuevo;
-    private javax.swing.JButton btVentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

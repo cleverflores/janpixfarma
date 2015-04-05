@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
 
 /*
  *
@@ -27,12 +27,13 @@ public class MainController implements ActionListener {
         USUARIO_ADMINISTRAR,
         ADMIN_MEDICAMENTOS,
         ADMIN_CLIENTES,
+        REGISTRAR_VENTA,
         REPORTE_CAJA,
         REPORTE_CLIENTES,
         REPORTE_COMPRAS,
         REPORTE_VENTA_USUARIO,
         REPORTE_RANKING,
-        CERRAR_SESION,
+        CAMBIAR_USUARIO,
         SALIR
     }
 
@@ -44,53 +45,90 @@ public class MainController implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
         try {
             Form form = Form.valueOf(evento.getActionCommand());
+            // obteniendo el pane y borrando todos los internalframes
+            pane = view.getMainPane();
+            pane.removeAll();
+
             switch (form) {
                 case USUARIO_ADMINISTRAR:
                     // invocando la ventana de administración de usuarios
                     janpixfarma.modules.admin.controller.UsuarioAdministrarController.UsuarioAdministrar(this);
                     break;
                 case ADMIN_MEDICAMENTOS:
-                    // obteniendo el pane y borrando todos los internalframes
-                    pane = view.getMainPane();
-                    pane.removeAll();
-                    
                     // fromulario de administración de medicamentos
                     Medicamento frmMedicamento = new Medicamento();
-
                     // agredando al desktopPane el formulario de administración de medicamentos
                     pane.add(frmMedicamento);
-                    
-                    // maximizando el formulario de registro del usuario
+                    frmMedicamento.setTitle("Administración de Medicamentos");
                     frmMedicamento.setMaximum(true);
                     frmMedicamento.setClosable(true);
                     frmMedicamento.setVisible(true);
                     break;
-                    
                 case ADMIN_CLIENTES:
                     Cliente cliente = new Cliente();
+                    // agredando al desktopPane el formulario de administración de clientes
+                    pane.add(cliente);
+                    cliente.setMaximum(true);
+                    cliente.setClosable(true);
                     cliente.setVisible(true);
-                    cliente.toFront();
-                    //JOptionPane.showMessageDialog(null, "Habla loco" + evento.getActionCommand() + "\n");
+                    break;
+                case REGISTRAR_VENTA:
+                    janpixfarma.RegistroVentas regventas = new janpixfarma.RegistroVentas();
+                    // mostrando el ranking de venta por usuario
+                    pane.add(regventas);
+                    regventas.setTitle("Registrar Venta");                    
+                    regventas.setMaximum(true);
+                    regventas.setClosable(true);
+                    regventas.setVisible(true);
                     break;
                 case REPORTE_CAJA:
                     janpixfarma.ReporteCaja repcaja = new janpixfarma.ReporteCaja();
+                    // agredando al desktopPane el reporte de caja
+                    pane.add(repcaja);
+                    repcaja.setMaximum(true);
+                    repcaja.setClosable(true);
                     repcaja.setVisible(true);
                     break;
                 case REPORTE_CLIENTES:
                     janpixfarma.ReporteCliente repcliente = new janpixfarma.ReporteCliente();
+                    // agredando al desktopPane el reporte de clientes
+                    pane.add(repcliente);
+                    repcliente.setMaximum(true);
+                    repcliente.setClosable(true);
                     repcliente.setVisible(true);
                     break;
                 case REPORTE_COMPRAS:
                     janpixfarma.ReporteCompras repcompras = new janpixfarma.ReporteCompras();
+                    // agredando al desktopPane el formulario de administración de medicamentos
+                    pane.add(repcompras);
+                    // maximizando el formulario de registro del usuario
+                    repcompras.setMaximum(true);
+                    repcompras.setClosable(true);
                     repcompras.setVisible(true);
                     break;
                 case REPORTE_VENTA_USUARIO:
                     janpixfarma.reporVentas repventas = new janpixfarma.reporVentas();
+                    // agredando al desktopPane el formulario de administración de medicamentos
+                    pane.add(repventas);
+                    // maximizando el formulario de registro del usuario
+                    repventas.setMaximum(true);
+                    repventas.setClosable(true);
                     repventas.setVisible(true);
                     break;
                 case REPORTE_RANKING:
                     janpixfarma.rankVentas repranking = new janpixfarma.rankVentas();
+                    // mostrando el ranking de venta por usuario
                     repranking.setVisible(true);
+                    break;
+                case CAMBIAR_USUARIO:
+                    // Login de usuario
+                    view.setVisible(false);
+                    app.setAdmin(false);
+                    janpixfarma.modules.application.controller.LoginController.Login();
+                    break;
+                case SALIR:
+                    JOptionPane.showMessageDialog(null, "Hasta Pronto");
+                    System.exit(1);
                     break;
             }
         } catch (PropertyVetoException ex) {
@@ -109,7 +147,6 @@ public class MainController implements ActionListener {
         if (!app.isAdmin()) {
             view.getMenu().remove(0);
         }
-
         // Mostrando la ventana de Main
         view.setVisible(true);
     }

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Cesar R
  */
-public class ReporteCompras extends javax.swing.JFrame {
+public class ReporteCompras extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ReporteCompras
@@ -44,9 +44,6 @@ public class ReporteCompras extends javax.swing.JFrame {
     public ReporteCompras() {
         
         initComponents();
-        
-        setLocationRelativeTo(null);//Coloca la ventana en el centro de la pantalla
-        setResizable(false);//Desabilita la opcion "ampliar ventana" 
         
         modeloReporteCompras = new DefaultTableModel();//Se instancia nuestro modelo de tabla
         modeloReporteCompras.addColumn("Medicamento");//Se crea la columna "medidamento" en la tabla
@@ -74,7 +71,8 @@ public class ReporteCompras extends javax.swing.JFrame {
         btnBorrar = new javax.swing.JButton();
         btnVentanaPrincipal = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reporte de Compras");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

@@ -5,7 +5,7 @@ package janpixfarma;
 import javax.swing.table.DefaultTableModel;
 
 
-public class ReporteCaja extends javax.swing.JFrame {
+public class ReporteCaja extends javax.swing.JInternalFrame {
 
     /*
     Datos de usuario para hacer pruebas    
@@ -24,9 +24,6 @@ public class ReporteCaja extends javax.swing.JFrame {
     
     public ReporteCaja() {
         initComponents();
-        
-        setLocationRelativeTo(null);//Coloca la ventana en el centro de la pantalla
-        setResizable(false);//Desabilita la opcion "ampliar ventana" 
         
         modeloReporteCaja = new DefaultTableModel();//Se instancia nuestro modelo de tabla
         modeloReporteCaja.addColumn("Medicamento");//Se crea la columna "medidamento" en la tabla
@@ -94,7 +91,8 @@ public class ReporteCaja extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reporte de Caja");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
